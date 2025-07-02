@@ -50,7 +50,7 @@ const Achievements = () => {
 
   const achievements = [
     {
-      title: "Event Management Head",
+      title: "Event Management Team",
       organization: "Mathematics Club, VIT Chennai",
       description: "Led event planning and coordination for mathematical competitions and workshops",
       date: "2023-2024",
