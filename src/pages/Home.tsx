@@ -71,7 +71,7 @@ const Home = () => {
                 Contact Me
               </Button>
             </Link>
-            <a href="https://drive.google.com/file/d/1lO4QTigXUnBPD5t433qNWtOC2NvNFQS3/view?usp=sharing"
+            <a href="https://drive.google.com/file/d/1RAexEam0qnNuhGvVbFgnbg4jrtN_njZa/view?usp=drive_link"
               target="_blank" rel="noopener noreferrer">
               <Button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg">
                 View Resume
