@@ -59,7 +59,7 @@ const Achievements = () => {
     {
       title: "LeetCode Problem Solver",
       organization: "LeetCode Platform",
-      description: "Successfully solved 300+ algorithmic problems across various difficulty levels",
+      description: "Successfully solved 350+ algorithmic problems across various difficulty levels",
       date: "Ongoing",
       icon: <Star className="w-5 h-5" />,
       link: "https://leetcode.com/u/NIKHIL_pesala/"
