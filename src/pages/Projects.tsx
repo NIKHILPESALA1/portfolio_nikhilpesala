@@ -31,7 +31,7 @@ const Projects = () => {
       tech: ["Python", "AWS Lambda", "AWS S3", "News API", "Cloud Computing"],
       category: "Cloud & Backend",
       code: "https://github.com/NIKHILPESALA1/newsaggregator",
-      demo: null
+      demo: "https://newsaggregator-git-master-nikhil-pesalas-projects.vercel.app/"
     },
     {
       title: "Honey Adulteration Detection (Python, ML)",
