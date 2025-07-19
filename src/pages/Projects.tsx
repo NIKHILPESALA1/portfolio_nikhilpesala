@@ -21,7 +21,7 @@ const Projects = () => {
       description: "Intelligent routing system simulating air travel under seasonal & fuel constraints, achieving +15% efficiency through advanced graph algorithms.",
       tech: ["Python", "Graph Algorithms", "Optimization", "BFS/DFS", "UCS"],
       category: "Algorithm & Optimization",
-      code: "https://github.com/NIKHILPESALA1/smart-airlift-router.git",
+      code: null,
       demo: null
     },
     {
@@ -30,7 +30,7 @@ const Projects = () => {
       description: "Scalable low-latency pipeline ingesting real-time news data from News API and storing in AWS S3 via Lambda functions.",
       tech: ["Python", "AWS Lambda", "AWS S3", "News API", "Cloud Computing"],
       category: "Cloud & Backend",
-      code: null,
+      code: "https://github.com/NIKHILPESALA1/newsaggregator",
       demo: null
     },
     {
