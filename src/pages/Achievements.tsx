@@ -23,12 +23,12 @@ const Achievements = () => {
       link: "https://drive.google.com/file/d/1Yi5jBviJXeya6RCqAk3hnA6utLs9INay/view"
     },
     {
-      title: "Accenture Virtual Internship",
-      issuer: "Accenture",
-      date: "2024",
-      category: "Professional Experience",
-      icon: <Trophy className="w-5 h-5" />,
-      link: "https://drive.google.com/file/d/1WeL6P2g-7dz_Q7xJIabeHGRK5eTNu2VV/view"
+      title: "DevOps Certification",
+      issuer: "Oracle",
+      date: "2025",
+      category: "DevOps",
+      icon: <Award className="w-5 h-5" />,
+      link: "https://drive.google.com/file/d/12g3Bil9GyIP0pnZzIXLPdEI32eJzH1El/view?usp=sharing"
     },
     {
       title: "Agile Scrum Fundamentals",
