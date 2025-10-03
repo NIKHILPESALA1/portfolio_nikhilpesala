@@ -30,7 +30,7 @@ const Home = () => {
             <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
               NIKHIL PESALA
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-2">Computer Science Engineer | Nellore</p>
+            <p className="text-xl md:text-2xl text-gray-300 mb-2">Computer Science Engineer</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base mb-8">
