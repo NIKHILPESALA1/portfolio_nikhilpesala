@@ -3,7 +3,7 @@
 Welcome to my personal portfolio website!  
 This project showcases my work in **AI**, **Machine Learning**, **IoT**, and **Full-Stack Development**.
 
-🌐 **Live Site:** [Visit Portfolio](https://lovable.dev/projects/c10b1e75-601f-421a-8cd0-470ca5e8c351)
+🌐 **Live Site:** [Visit Portfolio](https://portfolio-nikhilpesala.vercel.app/)
 
 ---
 
