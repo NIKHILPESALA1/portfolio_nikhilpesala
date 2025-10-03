@@ -7,12 +7,21 @@ import { Link } from 'react-router-dom';
 const Projects = () => {
   const projects = [
     {
+      title: "Expense Tracker (Docker, Jenkins, Prometheus, Grafana)",
+      date: "Sep 2025",
+      description: "Dockerized Expense Tracker with complete CI/CD pipeline using Jenkins. Integrated Prometheus and Grafana to monitor both application performance and Jenkins build metrics.",
+      tech: ["Docker", "Jenkins", "Prometheus", "Grafana", "Full-stack"],
+      category: "DevOps & Full-stack",
+      code: "https://github.com/NIKHILPESALA1/expense-tracker",
+      demo: null
+    },
+    {
       title: "File Compression (Java, Huffman)",
       date: "Oct 2024",
       description: "Multi-format compressor (PNG, JPEG, PDF, DOCX) with 40% text & 20% image reduction using advanced Huffman algorithm implementation.",
       tech: ["Java", "Huffman Algorithm", "File Processing", "Data Compression"],
       category: "Algorithm Implementation",
-      code: "https://github.com/NIKHILPESALA1/file-compression", // replace with your actual link
+      code: "https://github.com/NIKHILPESALA1/file-compression",
       demo: null
     },
     {
@@ -48,7 +57,7 @@ const Projects = () => {
       description: "IoT-based automated plant care system with real-time soil/humidity sensing and automated irrigation with web dashboard.",
       tech: ["ESP8266", "Arduino", "IoT", "Sensors", "Web Dashboard"],
       category: "IoT & Embedded",
-      code: null, // replace with your actual repo
+      code: null,
       demo: "https://drive.google.com/file/d/1vwVe-n7i9bP4x4BewPyOZrCm8CMBQEkC/view?usp=drivesdk"
     }
   ];
@@ -82,7 +91,7 @@ const Projects = () => {
               My Projects
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A collection of my technical projects showcasing skills in algorithms, web development, machine learning, and IoT.
+              A collection of my technical projects showcasing skills in DevOps, algorithms, machine learning, full-stack, and IoT.
             </p>
           </div>
 
