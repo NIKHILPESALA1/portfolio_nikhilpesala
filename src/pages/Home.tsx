@@ -31,7 +31,7 @@ const Home = () => {
               NIKHIL PESALA
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-2">Computer Science Engineer</p>
-            <p className="text-lg text-purple-300 mb-8">AI/ML Enthusiast</p>
+            
           </div>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base mb-8">
@@ -120,7 +120,7 @@ const Home = () => {
                 <div>
                   <h4 className="font-semibold mb-1 text-purple-300">Languages:</h4>
                   <div className="flex flex-wrap gap-2">
-                    {['Java', 'Python', 'C/C++', 'SQL'].map((skill) => (
+                    {['Java', 'Python', 'MySQL'].map((skill) => (
                       <span key={skill} className="bg-purple-600/30 px-3 py-1 rounded-full text-sm">
                         {skill}
                       </span>
@@ -129,9 +129,9 @@ const Home = () => {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold mb-1 text-purple-300">Web:</h4>
+                  <h4 className="font-semibold mb-1 text-purple-300">DevOps:</h4>
                   <div className="flex flex-wrap gap-2">
-                    {['HTML5', 'CSS3', 'JavaScript'].map((skill) => (
+                    {['Docker', 'Jenkins', 'Grafana', 'Prometheus', 'Terraform'].map((skill) => (
                       <span key={skill} className="bg-purple-600/30 px-3 py-1 rounded-full text-sm">
                         {skill}
                       </span>
@@ -142,7 +142,7 @@ const Home = () => {
                 <div>
                   <h4 className="font-semibold mb-1 text-purple-300">Cloud & DevOps:</h4>
                   <div className="flex flex-wrap gap-2">
-                    {['AWS (S3, Lambda)', 'REST APIs'].map((skill) => (
+                    {['AWS (S3, Lambda)'].map((skill) => (
                       <span key={skill} className="bg-purple-600/30 px-3 py-1 rounded-full text-sm">
                         {skill}
                       </span>
@@ -150,37 +150,10 @@ const Home = () => {
                   </div>
                 </div>
 
-                <div>
-                  <h4 className="font-semibold mb-1 text-purple-300">ML & Data:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['scikit-learn', 'pandas', 'NumPy', 'matplotlib'].map((skill) => (
-                      <span key={skill} className="bg-purple-600/30 px-3 py-1 rounded-full text-sm">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+                
+               
 
-                <div>
-                  <h4 className="font-semibold mb-1 text-purple-300">IoT & Embedded:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['ESP8266', 'Arduino', 'Sensors'].map((skill) => (
-                      <span key={skill} className="bg-purple-600/30 px-3 py-1 rounded-full text-sm">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold mb-1 text-purple-300">Tools:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {['Git', 'GitHub', 'Overleaf', 'Jupyter'].map((tool) => (
-                      <span key={tool} className="bg-purple-600/30 px-3 py-1 rounded-full text-sm">
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
+                
                 </div>
               </div>
             </div>
