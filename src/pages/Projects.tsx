@@ -7,58 +7,55 @@ import { Link } from 'react-router-dom';
 const Projects = () => {
   const projects = [
     {
-      title: "Expense Tracker (Docker, Jenkins, Prometheus, Grafana)",
-      date: "Sep 2025",
-      description: "Dockerized Expense Tracker with complete CI/CD pipeline using Jenkins. Integrated Prometheus and Grafana to monitor both application performance and Jenkins build metrics.",
-      tech: ["Docker", "Jenkins", "Prometheus", "Grafana", "Full-stack"],
-      category: "DevOps & Full-stack",
-      code: "https://github.com/NIKHILPESALA1/expense-tracker",
-      demo: null
-    },
-    {
-      title: "File Compression (Java, Huffman)",
-      date: "Oct 2024",
-      description: "Multi-format compressor (PNG, JPEG, PDF, DOCX) with 40% text & 20% image reduction using advanced Huffman algorithm implementation.",
-      tech: ["Java", "Huffman Algorithm", "File Processing", "Data Compression"],
-      category: "Algorithm Implementation",
-      code: "https://github.com/NIKHILPESALA1/file-compression",
-      demo: null
-    },
-    {
-      title: "Air Route Optimization (Python, BFS/DFS/UCS)",
-      date: "Nov 2024",
-      description: "Intelligent routing system simulating air travel under seasonal & fuel constraints, achieving +15% efficiency through advanced graph algorithms.",
-      tech: ["Python", "Graph Algorithms", "Optimization", "BFS/DFS", "UCS"],
-      category: "Algorithm & Optimization",
+      title: "Automated Meeting Summarizer",
+      date: "2025",
+      description: [
+        "Built a pipeline to transcribe and summarize meetings using GenAI and NLP.",
+        "Configured CI/CD: GitHub pushes trigger Jenkins pipelines.",
+        "Automated creation of summarized file objects in Salesforce for real-time insights.",
+        "Improved meeting follow-up efficiency by 40%."
+      ],
+      tech: ["GenAI", "Salesforce", "Jenkins", "GitHub"],
+      category: "GenAI & Salesforce",
       code: null,
       demo: null
     },
     {
-      title: "News Aggregator (Python, AWS Lambda/S3)",
-      date: "Nov 2024",
-      description: "Scalable low-latency pipeline ingesting real-time news data from News API and storing in AWS S3 via Lambda functions.",
-      tech: ["Python", "AWS Lambda", "AWS S3", "News API", "Cloud Computing"],
-      category: "Cloud & Backend",
-      code: "https://github.com/NIKHILPESALA1/newsaggregator",
-      demo: "https://newsaggregator-git-master-nikhil-pesalas-projects.vercel.app/"
+      title: "Spotify Playlist Automation",
+      date: "2025",
+      description: [
+        "Automated daily playlist updates, fetching the latest songs from selected artists.",
+        "Dockerized PowerShell script integrated with Jenkins for CI/CD scheduling."
+      ],
+      tech: ["Docker", "Jenkins", "Spotify API"],
+      category: "Automation",
+      code: null,
+      demo: null
     },
     {
-      title: "Honey Adulteration Detection (Python, ML)",
-      date: "Mar 2025",
-      description: "Complete ML pipeline with EDA & KNN models achieving 92% accuracy in detecting honey adulteration with comprehensive data visualization.",
-      tech: ["Python", "Machine Learning", "KNN", "Data Analysis", "scikit-learn"],
+      title: "Honey Adulteration Detection",
+      date: "2025",
+      description: [
+        "Designed ML models (LDA, KNN) achieving 92% classification accuracy.",
+        "Reduced manual testing time by 60% through automated preprocessing and classification."
+      ],
+      tech: ["Python", "Machine Learning", "LDA", "KNN"],
       category: "Machine Learning",
       code: "https://github.com/NIKHILPESALA1/Adulteration_ML.git",
       demo: null
     },
     {
-      title: "Smart Plant Care (ESP8266, Arduino)",
-      date: "Apr 2025",
-      description: "IoT-based automated plant care system with real-time soil/humidity sensing and automated irrigation with web dashboard.",
-      tech: ["ESP8266", "Arduino", "IoT", "Sensors", "Web Dashboard"],
-      category: "IoT & Embedded",
-      code: null,
-      demo: "https://drive.google.com/file/d/1vwVe-n7i9bP4x4BewPyOZrCm8CMBQEkC/view?usp=drivesdk"
+      title: "Dockerized Expense Tracker",
+      date: "2025",
+      description: [
+        "Built a Dockerized Expense Tracker with a complete CI/CD pipeline using Jenkins.",
+        "Integrated Prometheus and Grafana to monitor both application performance and Jenkins metrics.",
+        "Enabled real-time observability and efficient deployment."
+      ],
+      tech: ["Docker", "Jenkins", "Prometheus", "Grafana"],
+      category: "DevOps & Monitoring",
+      code: "https://github.com/NIKHILPESALA1/expense-tracker",
+      demo: null
     }
   ];
 
@@ -91,12 +88,12 @@ const Projects = () => {
               My Projects
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A collection of my technical projects showcasing skills in DevOps, algorithms, machine learning, full-stack, and IoT.
+              A collection of my technical projects showcasing skills in GenAI, automation, machine learning, DevOps, and monitoring.
             </p>
           </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
               <Card key={index} className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all duration-300 hover:scale-105">
                 <CardHeader>
@@ -112,7 +109,11 @@ const Projects = () => {
                     {project.title}
                   </CardTitle>
                   <CardDescription className="text-gray-300 text-sm leading-relaxed">
-                    {project.description}
+                    <ul className="list-disc list-inside space-y-1">
+                      {project.description.map((desc, i) => (
+                        <li key={i}>{desc}</li>
+                      ))}
+                    </ul>
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
