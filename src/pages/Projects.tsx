@@ -29,7 +29,7 @@ const Projects = () => {
       ],
       tech: ["Docker", "Jenkins", "Spotify API"],
       category: "Automation",
-      code: "https://github.com/NIKHILPESALA1/salesforce-automation",
+      code: "https://github.com/NIKHILPESALA1/spotify_automation",
       demo: null
     },
     {
