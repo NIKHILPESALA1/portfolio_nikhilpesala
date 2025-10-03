@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
-      
       {/* Navigation */}
       <nav className="fixed top-0 w-full bg-black/20 backdrop-blur-md z-50 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4">
@@ -31,7 +30,7 @@ const Home = () => {
             <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
               NIKHIL PESALA
             </h1>
-            <p className="text-xl md:text-2xl text-gray-300 mb-2">Computer Science Engineer</p>
+            <p className="text-xl md:text-2xl text-gray-300 mb-2">Computer Science Engineer | Nellore</p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base mb-8">
@@ -81,7 +80,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* About & Skills Section */}
+      {/* Quick About Section */}
       <section className="py-20 px-6 bg-black/20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">About Me</h2>
@@ -91,7 +90,6 @@ const Home = () => {
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 items-start">
-            
             {/* Education Box */}
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
               <h3 className="text-xl font-semibold mb-4">Education</h3>
@@ -141,7 +139,7 @@ const Home = () => {
                 </div>
 
                 <div>
-                  <h4 className="font-semibold mb-1 text-purple-300">Cloud & DevOps:</h4>
+                  <h4 className="font-semibold mb-1 text-purple-300">Cloud:</h4>
                   <div className="flex flex-wrap gap-2">
                     {['AWS (S3, Lambda)'].map((skill) => (
                       <span key={skill} className="bg-purple-600/30 px-3 py-1 rounded-full text-sm">
@@ -150,47 +148,32 @@ const Home = () => {
                     ))}
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Placeholder Projects Section */}
-<section className="py-20 px-6">
-  <div className="max-w-4xl mx-auto text-center">
-    <h2 className="text-3xl font-bold mb-8">Projects</h2>
-    <p className="text-lg text-gray-300 leading-relaxed mb-8">
-      Coming soon: A showcase of my projects including Expense Tracker, Spotify Playlist Automation, and AI-based solutions.
-    </p>
-    <Link to="/projects">
-      <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg">
-        View All Projects
-      </Button>
-    </Link>
-  </div>
-</section>
-
-
-      {/* Placeholder Contact Section */}
-      <section className="py-20 px-6 bg-black/20">
+      {/* Projects Section */}
+      <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">Contact Me</h2>
+          <h2 className="text-3xl font-bold mb-8">Projects</h2>
           <p className="text-lg text-gray-300 leading-relaxed mb-8">
-            You can reach out to me via email or LinkedIn. I’m always open to discussing exciting projects and opportunities.
+            Some of my projects include:
+            <br />
+            - Expense Tracker (Docker, Jenkins, Prometheus, Grafana)
+            <br />
+            - Spotify Playlist Automation (Docker, Jenkins)
+            <br />
+            - Automated Meeting Summarizer (GenAI, Salesforce, Jenkins)
           </p>
-          <div className="flex justify-center gap-6">
-            <a href="mailto:nikhilpesala4@gmail.com">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3">Email Me</Button>
-            </a>
-            <a href="https://www.linkedin.com/in/nikhilpesala/" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3">LinkedIn</Button>
-            </a>
-          </div>
+          <Link to="/projects">
+            <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg">
+              View All Projects
+            </Button>
+          </Link>
         </div>
       </section>
-
     </div>
   );
 };
