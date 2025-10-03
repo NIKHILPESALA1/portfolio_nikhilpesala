@@ -158,19 +158,20 @@ const Home = () => {
       </section>
 
       {/* Placeholder Projects Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">Projects</h2>
-          <p className="text-lg text-gray-300 leading-relaxed mb-8">
-            Coming soon: A showcase of my projects including Expense Tracker, Spotify Playlist Automation, and AI-based solutions.
-          </p>
-          <Link to="/projects">
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg">
-              View All Projects
-            </Button>
-          </Link>
-        </div>
-      </section>
+<section className="py-20 px-6">
+  <div className="max-w-4xl mx-auto text-center">
+    <h2 className="text-3xl font-bold mb-8">Projects</h2>
+    <p className="text-lg text-gray-300 leading-relaxed mb-8">
+      Coming soon: A showcase of my projects including Expense Tracker, Spotify Playlist Automation, and AI-based solutions.
+    </p>
+    <Link to="/projects">
+      <Button className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 text-lg">
+        View All Projects
+      </Button>
+    </Link>
+  </div>
+</section>
+
 
       {/* Placeholder Contact Section */}
       <section className="py-20 px-6 bg-black/20">
