@@ -29,7 +29,7 @@ const Projects = () => {
       ],
       tech: ["Docker", "Jenkins", "Spotify API"],
       category: "Automation",
-      code: null,
+      code: "https://github.com/NIKHILPESALA1/salesforce-automation",
       demo: null
     },
     {
@@ -54,7 +54,7 @@ const Projects = () => {
       ],
       tech: ["Docker", "Jenkins", "Prometheus", "Grafana"],
       category: "DevOps & Monitoring",
-      code: "https://github.com/NIKHILPESALA1/expense-tracker",
+      code: "https://github.com/NIKHILPESALA1/my_expense_tracker",
       demo: null
     }
   ];
