@@ -56,6 +56,20 @@ const Projects = () => {
       category: "DevOps & Monitoring",
       code: "https://github.com/NIKHILPESALA1/my_expense_tracker",
       demo: null
+    },
+    {
+      title: "Advanced RAG Optimization Module",
+      description: [
+          "Built a plug-and-play module that upgrades any Naive RAG system into an Advanced RAG pipeline."
+          "Implemented hybrid retrieval (Vector + BM25), reranking, chunk compression, and freshness-aware scoring."
+          "Added hallucination reduction techniques, grounding prompts, and citation-based verification."
+          "Designed modular architecture enabling seamless connection/disconnection without modifying core RAG logic."
+        ],
+        tech: ["Python","Chroma DB", "BM25", "LLM'S", "RAG"],
+        category: "Artificial Intelligence",
+        code: "https://github.com/NIKHILPESALA1/ADVANCE-RAG-MODULE",
+        demo:null
+        
     }
   ];
 
