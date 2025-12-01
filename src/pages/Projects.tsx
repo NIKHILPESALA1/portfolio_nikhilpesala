@@ -70,7 +70,7 @@ const Projects = () => {
         code: "https://github.com/NIKHILPESALA1/ADVANCE-RAG-MODULE",
         demo:null
         
-    }
+    },
   ];
 
   return (
