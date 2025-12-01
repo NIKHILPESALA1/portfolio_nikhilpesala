@@ -26,7 +26,7 @@ const Home = () => {
           <div className="mb-8">
             <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-purple-500">
   <img 
-    src="/Screenshot 2025-11-23 233839.png" 
+    src="/Screenshot 2025-11-28 181136.png" 
     alt="Nikhil Pesala" 
     className="w-full h-full object-cover"
   />
