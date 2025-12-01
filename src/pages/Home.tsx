@@ -24,9 +24,14 @@ const Home = () => {
       <section className="flex items-center justify-center min-h-screen px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
-            <div className="w-32 h-32 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center text-4xl font-bold">
-              NP
-            </div>
+            <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden border-4 border-purple-500">
+  <img 
+    src="/Screenshot 2025-11-23 233839.png" 
+    alt="Nikhil Pesala" 
+    className="w-full h-full object-cover"
+  />
+</div>
+
             <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
               NIKHIL PESALA
             </h1>
