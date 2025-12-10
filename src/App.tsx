@@ -15,166 +15,179 @@ const queryClient = new QueryClient();
 
 const App = () => {
 
-  // ----------------------------- CHATBOT SCRIPT -----------------------------
   useEffect(() => {
-    // Delay to ensure React DOM is mounted
+    // Delay ensures DOM is mounted before injecting widget
     setTimeout(() => {
-      const WEBHOOK_URL = "https://nikhilp1234.app.n8n.cloud/webhook/chatbot";
+      const WEBHOOK_URL = "https://kundu.app.n8n.cloud/webhook/chatbot";
 
       const container = document.getElementById("chatbot-container");
       if (!container) return;
 
       container.innerHTML = `
-        <style>
-          #chat-bubble {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: #0084ff;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            cursor: pointer;
-            z-index: 999999;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-          }
+      <style>
+        /* FIX: allow typing, focusing, clicking */
+        #chat-widget, 
+        #chat-widget * {
+          pointer-events: auto !important;
+          user-select: text !important;
+          position: relative;
+          z-index: 999999 !important;
+        }
 
-          #chat-widget {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            width: 350px;
-            height: 480px;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            background: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            display: none;
-            flex-direction: column;
-            font-family: system-ui;
-            z-index: 999999;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.25s ease-out;
-          }
+        body > *:not(#chatbot-container) {
+          z-index: auto !important;
+        }
 
-          #chat-widget.open {
-            display: flex;
-            transform: translateY(0);
-            opacity: 1;
-          }
+        #chat-bubble {
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: #0084ff;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 28px;
+          cursor: pointer;
+          z-index: 999999;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
 
-          #chat-header {
-            background: #0084ff;
-            color: white;
-            padding: 15px;
-            border-radius: 12px 12px 0 0;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          }
+        #chat-widget {
+          position: fixed;
+          bottom: 100px;
+          right: 20px;
+          width: 350px;
+          height: 480px;
+          border: 1px solid #ddd;
+          border-radius: 12px;
+          background: white;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          display: none;
+          flex-direction: column;
+          font-family: system-ui;
+          transform: translateY(20px);
+          opacity: 0;
+          transition: all 0.25s ease-out;
+        }
 
-          #close-chat {
-            cursor: pointer;
-            font-size: 20px;
-          }
+        #chat-widget.open {
+          display: flex;
+          transform: translateY(0);
+          opacity: 1;
+        }
 
-          #chat-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-          }
+        #chat-header {
+          background: #0084ff;
+          color: white;
+          padding: 15px;
+          border-radius: 12px 12px 0 0;
+          font-weight: 600;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
 
-          .message {
-            padding: 10px 14px;
-            border-radius: 18px;
-            max-width: 80%;
-            word-wrap: break-word;
-          }
+        #close-chat {
+          cursor: pointer;
+          font-size: 20px;
+        }
 
-          .user { background: #0084ff; color: white; align-self: flex-end; }
-          .bot { background: #f0f0f0; color: #333; align-self: flex-start; }
+        #chat-messages {
+          flex: 1;
+          overflow-y: auto;
+          padding: 15px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
 
-          #typing {
-            padding: 8px 14px;
-            background: #ececec;
-            border-radius: 18px;
-            width: 60px;
-            display: none;
-          }
+        .message {
+          padding: 10px 14px;
+          border-radius: 18px;
+          max-width: 80%;
+          word-wrap: break-word;
+        }
 
-          #typing span {
-            height: 8px;
-            width: 8px;
-            margin: 0 2px;
-            background: #aaa;
-            border-radius: 50%;
-            display: inline-block;
-            animation: blink 1.4s infinite both;
-          }
+        .user { background: #0084ff; color: white; align-self: flex-end; }
+        .bot { background: #f0f0f0; color: #333; align-self: flex-start; }
 
-          #typing span:nth-child(2) { animation-delay: 0.2s; }
-          #typing span:nth-child(3) { animation-delay: 0.4s; }
+        #typing {
+          padding: 8px 14px;
+          background: #ececec;
+          border-radius: 18px;
+          width: 60px;
+          display: none;
+        }
 
-          @keyframes blink {
-            0% { opacity: .2; }
-            20% { opacity: 1; }
-            100% { opacity: .2; }
-          }
+        #typing span {
+          height: 8px;
+          width: 8px;
+          margin: 0 2px;
+          background: #aaa;
+          border-radius: 50%;
+          display: inline-block;
+          animation: blink 1.4s infinite both;
+        }
 
-          #chat-input-container {
-            display: flex;
-            padding: 10px;
-            border-top: 1px solid #ddd;
-          }
+        #typing span:nth-child(2) { animation-delay: 0.2s; }
+        #typing span:nth-child(3) { animation-delay: 0.4s; }
 
-          #chat-input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-          }
+        @keyframes blink {
+          0% { opacity: .2; }
+          20% { opacity: 1; }
+          100% { opacity: .2; }
+        }
 
-          #chat-send {
-            background: #0084ff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin-left: 8px;
-            border-radius: 20px;
-            cursor: pointer;
-          }
-        </style>
+        #chat-input-container {
+          display: flex;
+          padding: 10px;
+          border-top: 1px solid #ddd;
+        }
 
-        <div id="chat-bubble">💬</div>
+        #chat-input {
+          flex: 1;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 20px;
+        }
 
-        <div id="chat-widget">
-          <div id="chat-header">
-            AI Assistant
-            <div id="close-chat">✖</div>
-          </div>
-          <div id="chat-messages"></div>
+        #chat-send {
+          background: #0084ff;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          margin-left: 8px;
+          border-radius: 20px;
+          cursor: pointer;
+        }
+      </style>
 
-          <div id="typing">
-            <span></span><span></span><span></span>
-          </div>
+      <div id="chat-bubble">💬</div>
 
-          <div id="chat-input-container">
-            <input id="chat-input" type="text" placeholder="Type a message..." />
-            <button id="chat-send">Send</button>
-          </div>
+      <div id="chat-widget">
+        <div id="chat-header">
+          AI Assistant
+          <div id="close-chat">✖</div>
         </div>
+
+        <div id="chat-messages"></div>
+
+        <div id="typing">
+          <span></span><span></span><span></span>
+        </div>
+
+        <div id="chat-input-container">
+          <input id="chat-input" type="text" placeholder="Type here..." />
+          <button id="chat-send">Send</button>
+        </div>
+      </div>
       `;
 
+      // DOM references
       const bubble = document.getElementById("chat-bubble")!;
       const widget = document.getElementById("chat-widget")!;
       const closeChat = document.getElementById("close-chat")!;
@@ -183,7 +196,7 @@ const App = () => {
       const input = document.getElementById("chat-input") as HTMLInputElement;
       const sendBtn = document.getElementById("chat-send") as HTMLButtonElement;
 
-      // Open / close widget
+      // Open/close logic
       bubble.onclick = () => widget.classList.add("open");
       closeChat.onclick = () => widget.classList.remove("open");
 
@@ -211,21 +224,21 @@ const App = () => {
             body: JSON.stringify({ message })
           });
 
-          const data = await response.text();
-
+          const text = await response.text();
           typing.style.display = "none";
-          addMessage(data, false);
+          addMessage(text, false);
         } catch {
           typing.style.display = "none";
-          addMessage("Something went wrong.", false);
+          addMessage("Something went wrong. Try again.", false);
         }
       }
 
       sendBtn.onclick = sendMessage;
       input.onkeypress = (e) => e.key === "Enter" && sendMessage();
-    }, 200); // small delay for DOM stability
+
+    }, 200); // delay
   }, []);
-  // -------------------------------------------------------------------------
+
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -233,7 +246,7 @@ const App = () => {
         <Toaster />
         <Sonner />
 
-        {/* Chatbot container MUST be outside Router */}
+        {/* IMPORTANT: Chatbot must be outside Router to avoid React unmounting it */}
         <div id="chatbot-container"></div>
 
         <BrowserRouter>
