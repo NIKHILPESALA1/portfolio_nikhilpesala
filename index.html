@@ -41,6 +41,178 @@
     <div id="root"></div>
     <div id="chatbot-container"></div>
 <script src="/chatbot.js"></script>
+    <div id="chatbot-container"></div>
+
+<script>
+  const WEBHOOK_URL = "https://nikhilp1234.app.n8n.cloud/webhook/chatbot";
+
+  const html = `
+    <style>
+      #chat-bubble {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 65px;
+        height: 65px;
+        background: #2563eb;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: white;
+        font-size: 32px;
+        z-index: 99999;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      }
+
+      #chat-window {
+        position: fixed;
+        bottom: 100px;
+        right: 20px;
+        width: 350px;
+        height: 500px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        display: none;
+        flex-direction: column;
+        z-index: 99999;
+        overflow: hidden;
+      }
+
+      #chat-header {
+        background: #2563eb;
+        padding: 14px;
+        color: white;
+        font-weight: 600;
+      }
+
+      #chat-messages {
+        flex: 1;
+        padding: 12px;
+        overflow-y: auto;
+        font-size: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .msg {
+        padding: 10px;
+        border-radius: 10px;
+        max-width: 80%;
+      }
+
+      .user {
+        align-self: flex-end;
+        background: #2563eb;
+        color: white;
+      }
+
+      .bot {
+        align-self: flex-start;
+        background: #f3f4f6;
+        color: #111;
+      }
+
+      #chat-input-box {
+        display: flex;
+        padding: 8px;
+        border-top: 1px solid #ddd;
+      }
+
+      #chat-input {
+        flex: 1;
+        padding: 8px;
+        border-radius: 8px;
+        border: 1px solid #cbd5e1;
+      }
+
+      #chat-send {
+        margin-left: 8px;
+        padding: 8px 14px;
+        background: #2563eb;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        border: none;
+      }
+
+      #typing {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 5px;
+        display: none;
+      }
+    </style>
+
+    <div id="chat-bubble">💬</div>
+
+    <div id="chat-window">
+      <div id="chat-header">AI Assistant</div>
+      <div id="chat-messages"></div>
+      <div id="typing">Assistant is typing...</div>
+      <div id="chat-input-box">
+        <input id="chat-input" placeholder="Type a message..." />
+        <button id="chat-send">Send</button>
+      </div>
+    </div>
+  `;
+
+  document.getElementById("chatbot-container").innerHTML = html;
+
+  const bubble = document.getElementById("chat-bubble");
+  const windowEl = document.getElementById("chat-window");
+  const input = document.getElementById("chat-input");
+  const sendBtn = document.getElementById("chat-send");
+  const messages = document.getElementById("chat-messages");
+  const typing = document.getElementById("typing");
+
+  bubble.onclick = () => {
+    windowEl.style.display = windowEl.style.display === "flex" ? "none" : "flex";
+  };
+
+  function addMsg(text, isUser) {
+    const m = document.createElement("div");
+    m.className = "msg " + (isUser ? "user" : "bot");
+    m.textContent = text;
+    messages.appendChild(m);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const text = input.value.trim();
+    if (!text) return;
+
+    addMsg(text, true);
+    input.value = "";
+
+    typing.style.display = "block";
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text })
+      });
+
+      const reply = await res.text();
+      typing.style.display = "none";
+      addMsg(reply, false);
+
+    } catch (err) {
+      typing.style.display = "none";
+      addMsg("Error contacting server.", false);
+    }
+  }
+
+  sendBtn.onclick = sendMessage;
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+</script>
+
 
   </body>
 </html>
